@@ -49,9 +49,7 @@ Add the necessary dependency to your project:
 [ymilky/travel-zoo "0.0.1"]
 ```
 
-### Requirements
-
-* Clojure 1.8+ (earlier versions untested, but may work with a recompile)
+[![Clojars Project](https://img.shields.io/clojars/v/ymilky/travel-zoo.svg)](https://clojars.org/ymilky/travel-zoo)
 
 ## Usage
 
