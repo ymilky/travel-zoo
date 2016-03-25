@@ -12,3 +12,9 @@
    (s/optional-key :server-id)                  s/Int
    (s/optional-key :tick-time)                  s/Int
    (s/optional-key :max-client-connections)     s/Int})
+
+(def ServerAddress
+  "Schema for a Zookeeper server address."
+  {(s/required-key :host) s/Str
+   (s/required-key :port) s/Int
+   (s/optional-key :path) (s/maybe s/Str)})

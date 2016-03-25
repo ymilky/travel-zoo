@@ -46,7 +46,7 @@ A Clojure toolbox for running embedded Zookeeper servers and clusters.
 Add the necessary dependency to your project:
 
 ```clojure
-[ymilky/travel-zoo "0.0.1"]
+[ymilky/travel-zoo "0.0.2"]
 ```
 
 [![Clojars Project](https://img.shields.io/clojars/v/ymilky/travel-zoo.svg)](https://clojars.org/ymilky/travel-zoo)

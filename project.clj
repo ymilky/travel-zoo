@@ -1,4 +1,4 @@
-(defproject ymilky/travel-zoo "0.0.1"
+(defproject ymilky/travel-zoo "0.0.2"
   :description "Embedded Zookeeper server and cluster for dev/unit testing with full configuration and validation, components, and more."
   :url "https://github.com/ymilky/travel-zoo"
   :author "ymilky"
