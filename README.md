@@ -55,7 +55,9 @@ Add the necessary dependency to your project:
 
 ### Server Using Concrete Type
 
-Require the appropriate namespaces, then start/stop/close the Zookeeper server as needed. It is best to
+The concrete type makes life easy for unit tests, wrapping in a component, or firing up a server at the REPL.
+
+Require the appropriate namespaces, then start/stop/close the Zookeeper server as needed.
 
 ```clojure
 (ns my.ns
@@ -110,6 +112,8 @@ Require the appropriate namespaces, then start/stop/close the Zookeeper server a
 
 ### Server Using Component
 
+The component version here directly implements the various travel-zoo embedded server protocols for Zookeeper. This version is good for embedding in an application for a testing/dev profile. The protocol can be used to then create a production component for Zookeeper if desired, and the components should be swappable per environment.
+
 ```clojure
 (ns my.ns
   (:require [travel-zoo.embedded.components.server :as server]
@@ -153,6 +157,10 @@ Require the appropriate namespaces, then start/stop/close the Zookeeper server a
 ```
 
 ### Cluster Using Concrete Type
+
+The cluster using a concrete type helps you create a Zookeeper cluster on the fly. This version is good for development, REPL sessions, testing, and in paritcular, testing Zookeeper operations that are cluster-specific or prone to failure in clustered configurations.
+
+You can spin up a cluster with as many servers as you required, though 2-3 should suit most needs.
 
 ```clojure
 (ns my.ns
@@ -217,6 +225,8 @@ Require the appropriate namespaces, then start/stop/close the Zookeeper server a
 ```
 
 ### Cluster Using Component
+
+The cluster component version is good for swapping a component between dev and production. Like other implementations, this uses a protocol for a cluster to allow you to swap in other implementations. Like most components, this version is especially good for a reloaded-REPL workflow, though be careful about the component lifecycle and ports as Zookeeper instances will run until you explicitly shut them down or kill the REPL session.
 
 ```clojure
 (ns my.ns
@@ -328,6 +338,10 @@ All ports and data directories are checked to be free before allocation. It is i
 (defn validate-spec [my-spec]
   (s/validate my-spec tzs/InstanceSpecification))
 ```
+
+### Composite Components
+
+All components also have a composite version which simply wraps the concrete version. Operations can be performed directly on the concrete version as shown earlier by getting the server or cluster in the component map.
 
 ## License
 
